@@ -14,15 +14,30 @@ class App extends Component {
     await this.loadBlockchainData()
   }
 
+  // Connect to the blockchain
   async loadWeb3() {
-    //Setting up Web3
+    //Setting up Web3 with MetaMask
+    if (window.ethereum) {
+      window.web3 = new Web3(window.ethereum)
+      await window.ethereum.enable()
+    } else if (window.web3) {
+      window.web3 = new Web3(window.web3.currentProvider)
+    } else {
+      window.alert("Non-Ethereum browser detected. You should consider using MetaMask!");
+    }
   }
 
   async loadBlockchainData() {
     //Declare Web3
+    const web3 = window.web3;
+    //console.log(web3)
 
     //Load account
-
+    const accounts = await web3.eth.getAccounts()
+    //console.log(accounts)
+    //Save the account to the state
+    this.setState({account: accounts[0]})
+    
     //Network ID
 
     //IF got connection, get data from contracts
