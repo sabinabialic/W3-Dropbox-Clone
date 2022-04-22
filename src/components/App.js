@@ -1,4 +1,4 @@
-//import DStorage from '../abis/DStorage.json'
+import DStorage from '../abis/DStorage.json'
 import React, { Component } from 'react';
 import Navbar from './Navbar'
 import Main from './Main'
@@ -38,18 +38,28 @@ class App extends Component {
     //Save the account to the state
     this.setState({account: accounts[0]})
     
-    //Network ID
+    //Fetch the network ID we're connected to inside MetaMask
+    const networkId = await web3.eth.net.getId()
+    const networkData = DStorage.networks[networkId]
 
     //IF got connection, get data from contracts
+    if (networkData) {
       //Assign contract
+      const dstorage = new web3.eth.Contract(DStorage.abi, networkData.address)
+      this.setState({dstorage})
 
-      //Get files amount
+      //Get the number of files
+      const fileCount = await dstorage.methods.fileCount().call()
+      this.setState({fileCount})
 
-      //Load files&sort by the newest
-
-    //Else
-      //alert Error
-
+      //Load files and sort by the newest
+      for (var i=fileCount; i>=1; i--) {
+        const file = await dstorage.methods.files(i).call()
+        this.setState({files: [...this.state.files, file]})
+      }
+    } else {
+      window.alert('DStorage contract not deployed to detected network.')
+    }
   }
 
   // Get file from user
