@@ -1,7 +1,16 @@
-html, body {
+* html {
     height: 100%;
     padding: 0;
 }
+
+body, p {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+h1, h2, h3 {font-family: "Roboto", sans-serif;}
 
 .navbar {
     display: flex;
@@ -25,13 +34,67 @@ html, body {
 }
 
 .content {
-    text-align: center;
     justify-content: center;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 5%;
     margin-bottom: 5%;
 }
+
+.description {
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.glass-btn {
+    height: 40px;
+    width: 150px;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 0;
+    text-decoration: none;
+    border-radius: 12px;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.glass-btn:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+input[type=file]::file-selector-button {
+    height: 40px;
+    display: inline-block;
+    padding: 10px 28px;
+    border: 0;
+    text-decoration: none;
+    border-radius: 12px;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background-color: rgba(255,255,255,0.2);
+  }
 
 .white-glassmorphism {
     padding: 20px;
@@ -42,3 +105,27 @@ html, body {
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
+
+@media only screen and (max-width: 700px) {
+    .content {
+        justify-content: center;
+        margin-left: 0;
+        margin-right:0;
+    }
+
+    .btn-group {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .glass-btn {
+        width: 100%;
+    }
+
+    input[type=file]::file-selector-button {
+        padding: 10px 20px;
+        width: 35%;
+        overflow: hidden;
+    }
+  }

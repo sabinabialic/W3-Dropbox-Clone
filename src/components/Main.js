@@ -9,25 +9,27 @@ class Main extends Component {
         <div className="p-5 justify-center">
           <div className="content">
             <div className='card white-glassmorphism'>
-              <h2 className='text-white'>Share File</h2>
+              <h2 className='text-white text-center'>Share File</h2>
               <form onSubmit={(event) => {
                 event.preventDefault()
                 const description = this.fileDescription.value
                 this.props.uploadFile(description)
               }}>
 
-                <div className='form-group'>
-                  <br/>
+                <div className='form-group pt-2'>
                   <input
                     id='fileDescription'
                     type='text'
                     ref={(input) => {this.fileDescription = input}}
-                    className='form-control text-center'
+                    className='form-control description text-center'
                     placeholder='description'
                     required />
                 </div>
-                <input type='file' onChange={this.props.caputreFile} className='text-white'/>
-                <button type='submit' className='btn-primary btn-black'>Upload</button>
+                <div className='btn-group pt-2'>
+                  <input type='file' onChange={this.props.caputreFile} placeholder='' className='text-white mr-3'/>
+                  {/* <input type='file' onChange={this.props.caputreFile} className='text-white'/> */}
+                  <button type='submit' className='glass-btn'>Upload</button>
+                </div>
               </form>
             </div>
             {/* Create Table*/}
