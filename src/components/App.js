@@ -5,7 +5,9 @@ import Main from './Main'
 import Web3 from 'web3';
 import './App.css';
 
-//Declare IPFS
+//Make a connection to IPFS
+const ipfsClient = require('ipfs-http-client')
+const ipfs = ipfsClient({host: 'ipfs.infura.io', port: 5001, protocol: 'https'})
 
 class App extends Component {
 
@@ -60,10 +62,12 @@ class App extends Component {
     } else {
       window.alert('DStorage contract not deployed to detected network.')
     }
+    this.setState({loading: false})
   }
 
   // Get file from user
   captureFile = event => {
+
   }
 
 
@@ -94,7 +98,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className='background'>
         <Navbar account={this.state.account} />
         { this.state.loading
           ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>

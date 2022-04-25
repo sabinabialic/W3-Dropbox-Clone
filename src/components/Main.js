@@ -6,24 +6,37 @@ class Main extends Component {
 
   render() {
     return (
-      <div className="container-fluid mt-5 text-center">
-        <div className="row">
-          <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '1024px' }}>
-            <div className="content">
-              <p>&nbsp;</p>
-              <h1>DStorage starter_code</h1>
-              {/* Creatining uploading card ... */}
-                {/* Uploading file... */}
-              <p>&nbsp;</p>
-              {/* Create Table*/}
-              <table className="table-sm table-bordered text-monospace" style={{ width: '1000px', maxHeight: '450px'}}>
-              {/* Set table columns */}
-                {/* Mapping rows... */}
-              </table>
+        <div className="p-5 justify-center">
+          <div className="content">
+            <div className='card white-glassmorphism'>
+              <h2 className='text-white'>Share File</h2>
+              <form onSubmit={(event) => {
+                event.preventDefault()
+                const description = this.fileDescription.value
+                this.props.uploadFile(description)
+              }}>
+
+                <div className='form-group'>
+                  <br/>
+                  <input
+                    id='fileDescription'
+                    type='text'
+                    ref={(input) => {this.fileDescription = input}}
+                    className='form-control text-center'
+                    placeholder='description'
+                    required />
+                </div>
+                <input type='file' onChange={this.props.caputreFile} className='text-white'/>
+                <button type='submit' className='btn-primary btn-black'>Upload</button>
+              </form>
             </div>
-          </main>
+            {/* Create Table*/}
+            <table className="table-sm table-bordered text-monospace" style={{ width: '1000px', maxHeight: '450px'}}>
+            {/* Set table columns */}
+              {/* Mapping rows... */}
+            </table>
+          </div>
         </div>
-      </div>
     );
   }
 }

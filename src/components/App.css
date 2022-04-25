@@ -1,1 +1,44 @@
-/* Styles go here */
+html, body {
+    height: 100%;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-family : "Roboto";
+    font-size: x-large;
+    font-weight: 400;
+}
+
+.background {
+    height: 100vh;
+    background-color:#18141d;
+    background-image:
+        radial-gradient(at 0% 0%, #2f2157 0, transparent 50%),
+        radial-gradient(at 50% 0%, #472480 0, transparent 50%),
+        radial-gradient(at 100% 0%, #a43eb1 0, transparent 50%);
+}
+
+.content {
+    text-align: center;
+    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.white-glassmorphism {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
