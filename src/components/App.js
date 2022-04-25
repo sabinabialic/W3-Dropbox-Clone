@@ -67,15 +67,30 @@ class App extends Component {
 
   // Get file from user
   captureFile = event => {
+    event.preventDefault()
 
+    // Get the file from the form
+    const file = event.target.files[0]
+    const reader = new window.FileReader()
+    // Convert the file to a buffer
+    reader.readAsArrayBuffer(file)
+
+    reader.onloadend = () => {
+      this.setState({
+        buffer: Buffer(reader.result), type: file.type, name: file.name
+      })
+      console.log('buffer', this.state.buffer)
+    }
   }
 
 
   //Upload File
   uploadFile = description => {
-
+    console.log('Submitting the file to IPFS...')
     //Add file to the IPFS
-
+    ipfs.add(this.state.buffer, (error, result) => {
+      console.log('IPFS result', result.size)
+    })
       //Check If error
         //Return error
 

@@ -6,39 +6,42 @@ class Main extends Component {
 
   render() {
     return (
-        <div className="p-5 justify-center">
-          <div className="content">
-            <div className='card white-glassmorphism'>
-              <h2 className='text-white text-center'>Share File</h2>
-              <form onSubmit={(event) => {
-                event.preventDefault()
-                const description = this.fileDescription.value
-                this.props.uploadFile(description)
-              }}>
-
-                <div className='form-group pt-2'>
-                  <input
-                    id='fileDescription'
-                    type='text'
-                    ref={(input) => {this.fileDescription = input}}
-                    className='form-control description text-center'
-                    placeholder='description'
-                    required />
+      <div className="container-fluid p-5 justify-center">
+          <main role="main">
+            <div className="content">
+              <div className="card white-glassmorphism">
+                <h2 className='text-white text-center'>Save File</h2>
+                <form onSubmit={(event) => {
+                  event.preventDefault()
+                  const description = this.fileDescription.value
+                  this.props.uploadFile(description)
+                }} >
+                <div className="form-group pt-2">
+                  <br></br>
+                    <input
+                      id="fileDescription"
+                      type="text"
+                      ref={(input) => { this.fileDescription = input }}
+                      className='form-control text-center'
+                      placeholder="DESCRIPTION"
+                      required />
                 </div>
                 <div className='btn-group pt-2'>
-                  <input type='file' onChange={this.props.caputreFile} placeholder='' className='text-white mr-3'/>
-                  {/* <input type='file' onChange={this.props.caputreFile} className='text-white'/> */}
-                  <button type='submit' className='glass-btn'>Upload</button>
+                  <input type="file" onChange={this.props.captureFile} className="text-white mr-3"/>
+                  <button type="submit" className="glass-btn">Upload</button>
                 </div>
               </form>
             </div>
+
             {/* Create Table*/}
             <table className="table-sm table-bordered text-monospace" style={{ width: '1000px', maxHeight: '450px'}}>
-            {/* Set table columns */}
+              {/* Set table columns */}
               {/* Mapping rows... */}
             </table>
+
           </div>
-        </div>
+        </main>
+      </div>
     );
   }
 }
