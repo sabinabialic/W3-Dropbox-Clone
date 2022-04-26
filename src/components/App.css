@@ -13,14 +13,22 @@ body, p {
 h1, h2, h3, h4 {font-family: "Roboto", sans-serif;}
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
+    display: flex inline-block;
 }
 
 .navbar-brand {
     color: #fff;
     font-family : "Roboto";
-    font-size: x-large;
+    font-size: xx-large;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.navbar-account {
+    color: #fff;
+    font-family : "Montserrat";
+    font-size: large;
     font-weight: 400;
 }
 
@@ -37,21 +45,22 @@ h1, h2, h3, h4 {font-family: "Roboto", sans-serif;}
     background-color:#18141d;
     background-image:
         radial-gradient(at 50% 100%, #5f288b 0, transparent 50%);
+}
+
+.text-gradient {
+    background-color: #fff;
+    background-image: 
+    radial-gradient(at 0% 50%, #ffffff 0, transparent 50%), 
+    radial-gradient(at 110% 50%, #38203a 0, transparent 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
 .main-content {
-    justify-content: center;
-    margin-top: 5vh;
+    text-align: center;
+    margin-top: 2vh;
     margin-bottom: 5vh;
-    margin-left: 5vw;
-    margin-right: 5vw;
-}
-
-.file-content {
-    justify-content: center;
-    margin-top: 5vh;
-    margin-bottom: 0vh;
-    margin-left: 5vw;
+    margin-left: 2vw;
     margin-right: 5vw;
 }
 
@@ -112,13 +121,32 @@ input[type=file]::file-selector-button {
   }
 
 .white-glassmorphism {
-    padding: 20px;
+    margin-top: 10vh;
+    padding: 30px;
+    text-align: left;
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     border-radius: 12px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.dropzone-area {
+    height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    text-transform: uppercase;
+    flex-wrap: wrap;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.dropzone-text {
+    color: #fff;
+    font-family : "Roboto";
+    margin: 0;
+    position: relative;
+    top: 45%;
 }
 
 .uploads {
@@ -135,7 +163,7 @@ input[type=file]::file-selector-button {
     border-radius: 12px;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 760px) {
     .content {
         justify-content: center;
     }

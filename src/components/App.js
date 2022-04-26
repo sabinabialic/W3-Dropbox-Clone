@@ -7,7 +7,7 @@ import Web3 from 'web3';
 import './App.css';
 
 const ipfsClient = require('ipfs-http-client')
-const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' }) // leaving out the arguments will default to these values
+const ipfs = ipfsClient({host: 'ipfs.infura.io', port: 5001, protocol: 'https'}) // leaving out the arguments will default to these values
 
 class App extends Component {
 
@@ -20,56 +20,57 @@ class App extends Component {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum)
       await window.ethereum.enable()
-    }
-    else if (window.web3) {
+    } else if (window.web3) {
       window.web3 = new Web3(window.web3.currentProvider)
-    }
-    else {
-      window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
+    } else {
+      window.alert('Non-Ethereum browser detected. You should consider using MetaMask!')
     }
   }
 
+  // Declare Web3
   async loadBlockchainData() {
     const web3 = window.web3
+    //console.log(web3)
+
     // Load account
     const accounts = await web3.eth.getAccounts()
+    //console.log(accounts)
+    // Save the account to the state
     this.setState({ account: accounts[0] })
-    // Network ID
+
+    // Get the network ID we're connecting to
     const networkId = await web3.eth.net.getId()
     const networkData = DStorage.networks[networkId]
+
+    // If we got the connection, assign the contract
     if(networkData) {
       // Assign contract
       const dstorage = new web3.eth.Contract(DStorage.abi, networkData.address)
       this.setState({ dstorage })
-      // Get files amount
+      // Get the number of files
       const filesCount = await dstorage.methods.fileCount().call()
       this.setState({ filesCount })
-      // Load files&sort by the newest
+      // Load files and sort by the newest
       for (var i = filesCount; i >= 1; i--) {
         const file = await dstorage.methods.files(i).call()
-        this.setState({
-          files: [...this.state.files, file]
-        })
+        this.setState({files: [...this.state.files, file]})
       }
     } else {
       window.alert('DStorage contract not deployed to detected network.')
     }
   }
 
-  // Get file from user
+  // Get file from the form
   captureFile = event => {
     event.preventDefault()
 
     const file = event.target.files[0]
     const reader = new window.FileReader()
-
+    // Convert the file to a buffer
     reader.readAsArrayBuffer(file)
+
     reader.onloadend = () => {
-      this.setState({
-        buffer: Buffer(reader.result),
-        type: file.type,
-        name: file.name
-      })
+      this.setState({buffer: Buffer(reader.result), type: file.type, name: file.name})
       console.log('buffer', this.state.buffer)
     }
   }
@@ -87,9 +88,7 @@ class App extends Component {
 
       this.setState({ loading: true })
       // Assign value for the file without extension
-      if(this.state.type === ''){
-        this.setState({type: 'none'})
-      }
+      if(this.state.type === '') {this.setState({type: 'none'})}
       this.state.dstorage.methods.uploadFile(result[0].hash, result[0].size, this.state.type, this.state.name, description).send({ from: this.state.account }).on('transactionHash', (hash) => {
         this.setState({
          loading: false,
@@ -124,7 +123,7 @@ class App extends Component {
         <div className="gradient-bg-main">
           <Navbar account={this.state.account} />
           { this.state.loading
-            ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>
+            ? <div id="loader" className="text-center text-white text5xl mt-20"><h1>Loading...</h1></div>
             : 
             <div>
               <Main
