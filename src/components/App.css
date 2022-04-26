@@ -10,7 +10,7 @@ body, p {
     -moz-osx-font-smoothing: grayscale;
   }
 
-h1, h2, h3 {font-family: "Roboto", sans-serif;}
+h1, h2, h3, h4 {font-family: "Roboto", sans-serif;}
 
 .navbar {
     display: flex;
@@ -24,8 +24,8 @@ h1, h2, h3 {font-family: "Roboto", sans-serif;}
     font-weight: 400;
 }
 
-.background {
-    height: 100vh;
+.gradient-bg-main {
+    min-height: 100vh;
     background-color:#18141d;
     background-image:
         radial-gradient(at 0% 0%, #2f2157 0, transparent 50%),
@@ -33,12 +33,26 @@ h1, h2, h3 {font-family: "Roboto", sans-serif;}
         radial-gradient(at 100% 0%, #a43eb1 0, transparent 50%);
 }
 
-.content {
+.gradient-bg-uploads {
+    background-color:#18141d;
+    background-image:
+        radial-gradient(at 50% 100%, #5f288b 0, transparent 50%);
+  }
+
+.main-content {
     justify-content: center;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.file-content {
+    justify-content: center;
+    margin-top: 5vh;
+    margin-bottom: 0vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
 }
 
 .description {
@@ -107,12 +121,23 @@ input[type=file]::file-selector-button {
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.uploads {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+.upload-card {
+    padding: 20px;
+    background: #181918;
+    border-radius: 12px;
+}
 
 @media only screen and (max-width: 700px) {
     .content {
         justify-content: center;
-        margin-left: 0;
-        margin-right:0;
     }
 
     .btn-group {
