@@ -7,35 +7,59 @@ class Main extends Component {
     return (
       <div className="flex container w-full">
         <div className='main-content'>
-          <h1 className="text-white text-4xl py-5">
+          <h1 className="text-white text-4xl pt-5 pb-2">
             Upload and Store Files!
           </h1>
-          <p className="text-white mb-5">
+          <p className="text-white">
             Easily upload and store files on the blockchain using MetaMask
           </p>
 
-          <div className="card white-glassmorphism mb-5">
-                {/* <h2 className='text-white text-center'>Browse or Drop a File</h2> */}
-                <form onSubmit={(event) => {
-                  event.preventDefault()
-                  const description = this.fileDescription.value
-                  this.props.uploadFile(description)
-                }} >
-                <div className="form-group pt-2">
-                    <input
-                      id="fileDescription"
-                      type="text"
-                      ref={(input) => { this.fileDescription = input }}
-                      className='form-control text-center'
-                      placeholder="DESCRIPTION"
-                      required />
-                </div>
-                <div className='btn-group pt-2'>
-                  <input type="file" onChange={this.props.captureFile} className="text-white mr-3"/>
-                  <button type="submit" className="glass-btn">Upload</button>
-                </div>
-              </form>
+          <div className="upload-content">
+            <form onSubmit={(event) => {
+              event.preventDefault()
+              const description = this.fileDescription.value
+              this.props.uploadFile(description)
+            }} >
+              
+            <div className="card white-glassmorphism mb-5">
+              <div className='files'>
+                <input type="file" onChange={this.props.captureFile} className="text-white mr-3"/>
+              </div>
             </div>
+
+            <div className='btn-group pt-2'>
+              <input
+                  id="fileDescription"
+                  type="text"
+                  ref={(input) => { this.fileDescription = input }}
+                  className='form-control text-center'
+                  placeholder="DESCRIPTION"
+                  required />
+              <button type="submit" className="glass-btn">Upload</button>
+            </div>
+            </form>
+            
+            {/* <h2 className='text-white text-center'>Browse or Drop a File</h2> */}
+            {/* <form onSubmit={(event) => {
+              event.preventDefault()
+              const description = this.fileDescription.value
+              this.props.uploadFile(description)
+            }} >
+            <div className="form-group pt-2">
+                <input
+                  id="fileDescription"
+                  type="text"
+                  ref={(input) => { this.fileDescription = input }}
+                  className='form-control text-center'
+                  placeholder="DESCRIPTION"
+                  required />
+              </div>
+              <div className='btn-group pt-2'>
+                <input type="file" onChange={this.props.captureFile} className="text-white mr-3"/>
+                <button type="submit" className="glass-btn">Upload</button>
+              </div>
+            </form> */}
+          </div>
         </div>
       </div>
     );

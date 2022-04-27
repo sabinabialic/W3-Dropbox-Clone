@@ -123,7 +123,7 @@ class App extends Component {
         <div className="gradient-bg-main">
           <Navbar account={this.state.account} />
           { this.state.loading
-            ? <div id="loader" className="text-center text-white text5xl mt-20"><h1>Loading...</h1></div>
+            ? <div id="loader" className="text-center text-white text5xl mt-50"><h1>Loading...</h1></div>
             : 
             <div>
               <Main

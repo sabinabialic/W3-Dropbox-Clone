@@ -47,15 +47,6 @@ h1, h2, h3, h4 {font-family: "Roboto", sans-serif;}
         radial-gradient(at 50% 100%, #5f288b 0, transparent 50%);
 }
 
-.text-gradient {
-    background-color: #fff;
-    background-image: 
-    radial-gradient(at 0% 50%, #ffffff 0, transparent 50%), 
-    radial-gradient(at 110% 50%, #38203a 0, transparent 50%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
 .main-content {
     text-align: center;
     margin-top: 2vh;
@@ -90,7 +81,7 @@ h1, h2, h3, h4 {font-family: "Roboto", sans-serif;}
     letter-spacing: 1px;
     cursor: pointer;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-left: 50px;
 }
 
 .glass-btn:hover {
@@ -122,7 +113,7 @@ input[type=file]::file-selector-button {
 
 .white-glassmorphism {
     margin-top: 10vh;
-    padding: 30px;
+    padding: 0px;
     text-align: left;
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -130,23 +121,6 @@ input[type=file]::file-selector-button {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.dropzone-area {
-    height: 200px;
-    background: rgba(255, 255, 255, 0.05);
-    text-transform: uppercase;
-    flex-wrap: wrap;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.dropzone-text {
-    color: #fff;
-    font-family : "Roboto";
-    margin: 0;
-    position: relative;
-    top: 45%;
 }
 
 .uploads {
@@ -175,6 +149,8 @@ input[type=file]::file-selector-button {
 
     .glass-btn {
         width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
     }
 
     input[type=file]::file-selector-button {
@@ -182,3 +158,44 @@ input[type=file]::file-selector-button {
         width: 120px;
     }
   }
+
+.files input {
+    padding: 50px 0px 100px;
+    text-align: center;
+    width: 100%;
+}
+.files input:focus{     
+    border: 1px dashed #614d80;
+ }
+
+
+.files:after {  pointer-events: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 56px;
+    content: "";
+    display: block;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.files:before {
+    position: absolute;
+    bottom: 25%;
+    left: 0;  pointer-events: none;
+    width: 100%;
+    right: 0;
+    content: "or drag it here";
+    display: block;
+    margin: 0 auto;
+    color: #8b8b8b;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+}
