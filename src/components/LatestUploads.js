@@ -19,14 +19,14 @@ class LatestUploads extends Component {
                     return(
                       <div className="upload-card">
                         <div className='flex flex-col items-center w-full mt-3'>
-                          <div className='flex w-full mb-6 p-2'>
+                          <div className='flex w-full p-4'>
                             <h3 className='text-white text-center'>{file.fileDescription}</h3>
-                            <p className='text-white'><b>File Type:</b> {file.fileType}</p>
                             <p className='text-white'><b>File Size:</b> {convertBytes(file.fileSize)}</p>
-                            <p className='text-white'><b>Upload Date:</b> {moment.unix(file.uploadTime).format('h:mm:ss A M/D/Y')}</p>
+                            <p className='text-white'><b>File Type:</b> {file.fileType}</p>
                             <a href={"https://etherscan.io/address/" + file.uploader} target='_blank' rel='noopener noreferrer'>
-                              <p className='text-white'><b>Uploader: </b>{file.uploader.substring(0,6)}...{file.uploader.substring(38,42)}</p>
+                              <p className='text-white'><b>Uploader: </b>{file.uploader.substring(0,8)}...{file.uploader.substring(36,42)}</p>
                             </a>
+                            <p className='text-white'><b>Upload Date:</b> {moment.unix(file.uploadTime).format('h:mm:ss A M/D/Y')}</p>
                           </div>
 
                           <div className='p-3 px-5 w-max shadow-5xl timestamp-border'>

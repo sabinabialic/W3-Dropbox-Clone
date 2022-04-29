@@ -1,17 +1,4 @@
-* html {
-    height: 100%;
-    padding: 0;
-}
-
-body, p {
-    margin: 0;
-    font-family: "Montserrat", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-h1, h2, h3, h4 {font-family: "Roboto", sans-serif;}
-
+/* Navbar Styling */
 .navbar {
     display: flex inline-block;
 }
@@ -32,27 +19,75 @@ h1, h2, h3, h4 {font-family: "Roboto", sans-serif;}
     font-weight: 400;
 }
 
-.gradient-bg-main {
-    min-height: 100vh;
-    background-color:#18141d;
-    background-image:
-        radial-gradient(at 0% 0%, #2f2157 0, transparent 50%),
-        radial-gradient(at 50% 0%, #472480 0, transparent 50%),
-        radial-gradient(at 100% 0%, #a43eb1 0, transparent 50%);
-}
 
-.gradient-bg-uploads {
-    background-color:#18141d;
-    background-image:
-        radial-gradient(at 50% 100%, #5f288b 0, transparent 50%);
-}
-
+/* File Upload Section Styling */
 .main-content {
     text-align: center;
     margin-top: 2vh;
     margin-bottom: 5vh;
     margin-left: 2vw;
     margin-right: 5vw;
+}
+
+.files input {
+    padding: 80px 0px 140px;
+    text-align: center;
+    width: 100%;
+}
+ .files:hover{
+    box-shadow: 0 0 12px rgba(167, 134, 205, 0.4); 
+ }
+
+.files:after {  
+    pointer-events: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 56px;
+    content: "";
+    display: block;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.files:before {
+    position: absolute;
+    bottom: 25%;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    right: 0;
+    content: "or drag it here";
+    display: block;
+    margin: 0 auto;
+    color: #8b8b8b;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+input[type=file]::file-selector-button {
+    height: 40px;
+    display: inline-block;
+    padding: 10px 28px;
+    border: 0;
+    text-decoration: none;
+    border-radius: 12px;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 .description {
@@ -87,30 +122,7 @@ h1, h2, h3, h4 {font-family: "Roboto", sans-serif;}
 .glass-btn:hover {
     background-color: rgba(255,255,255,0.2);
 }
-
-input[type=file]::file-selector-button {
-    height: 40px;
-    display: inline-block;
-    padding: 10px 28px;
-    border: 0;
-    text-decoration: none;
-    border-radius: 12px;
-    background-color: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(30px);
-    color: rgba(255,255,255,0.8);
-    font-size: 14px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    margin-right: 10px;
-  }
   
-  input[type=file]::file-selector-button:hover {
-    background-color: rgba(255,255,255,0.2);
-  }
-
 .white-glassmorphism {
     margin-top: 8vh;
     padding: 0px;
@@ -123,6 +135,8 @@ input[type=file]::file-selector-button {
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+
+/* Recent Uploads Styling */
 .uploads-header {
     padding-top: 8vh;
     text-align: center;
@@ -154,11 +168,16 @@ input[type=file]::file-selector-button {
     border-radius: 20px;
 }
 
+.timestamp-border:hover {
+    box-shadow: 0 0 12px rgba(162, 102, 177, 0.4);
+}
+
 .timestamp-text {
     color: black;
     font-weight: 800;
 }
 
+/* Smaller Screen Styling */
 @media only screen and (max-width: 760px) {
     .content {
         justify-content: center;
@@ -174,50 +193,35 @@ input[type=file]::file-selector-button {
         margin-left: 0;
         margin-top: 20px;
     }
+}
 
-    input[type=file]::file-selector-button {
-        padding: 10px 20px;
-        width: 120px;
-    }
+/* Background Styling */
+* html {
+    height: 100%;
+    padding: 0;
+}
+
+.gradient-bg-main {
+    min-height: 100vh;
+    background-color:#18141d;
+    background-image:
+        radial-gradient(at 0% 0%, #2f2157 0, transparent 50%),
+        radial-gradient(at 50% 0%, #472480 0, transparent 50%),
+        radial-gradient(at 100% 0%, #a43eb1 0, transparent 50%);
+}
+
+.gradient-bg-uploads {
+    background-color:#18141d;
+    background-image:
+        radial-gradient(at 50% 100%, #5f288b 0, transparent 50%);
+}
+
+/* Font Styling */
+body, p {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-.files input {
-    padding: 80px 0px 140px;
-    text-align: center;
-    width: 100%;
-}
-.files input:focus{     
-    border: 1px dashed #614d80;
- }
-
-
-.files:after {  pointer-events: none;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 50px;
-    right: 0;
-    height: 56px;
-    content: "";
-    display: block;
-    margin: 0 auto;
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-
-.files:before {
-    position: absolute;
-    bottom: 25%;
-    left: 0;  pointer-events: none;
-    width: 100%;
-    right: 0;
-    content: "or drag it here";
-    display: block;
-    margin: 0 auto;
-    color: #8b8b8b;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-align: center;
-}
+h1, h2, h3, h4 {font-family: "Roboto", sans-serif;}
