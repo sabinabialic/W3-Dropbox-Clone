@@ -130,10 +130,11 @@ class App extends Component {
                 files={this.state.files}
                 captureFile={this.captureFile}
                 uploadFile={this.uploadFile}/>
-              <LatestUploads
-                files={this.state.files}/>
             </div>
           }
+          <LatestUploads 
+            account={this.state.account}
+            files={this.state.files}/>
         </div>
       </div>
     );

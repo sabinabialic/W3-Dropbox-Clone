@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import { convertBytes } from './helpers';
-import moment from 'moment'
 
 class Main extends Component {
   render() {
     return (
       <div className="flex container w-full">
         <div className='main-content'>
-          <h1 className="text-white text-4xl pt-5 pb-2">
+          <h1 className="text-white text-4xl pt-5">
             Upload and Store Files!
           </h1>
-          <p className="text-white">
+          <p className="text-white pt-3">
             Easily upload and store files on the blockchain using MetaMask
           </p>
 
